@@ -1,5 +1,9 @@
+import jwt from 'jsonwebtoken';
+import app from "../server.js"
+import Users from "../models/Test.js"
+
 export function autheticationFunc (req, res) {
-    findOne({
+    Users.findOne({
         username: req.body.username
     }, function (err, user) {
         if (err) throw err;
@@ -13,10 +17,10 @@ export function autheticationFunc (req, res) {
                 res.json({ success: false, message: 'Authentication failed. Wrong password.' });
             } else {
                 const payload = {
-                    admin: user.admin
+                    id: user._id
                 };
 
-                let token = sign(payload, app.get('mySecret'), {
+                let token = jwt.sign(payload, app.get('mySecret'), {
                     
                 });
                 res.json({

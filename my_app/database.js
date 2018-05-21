@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import {users} from './models/Test'
 import { connect } from 'mongoose';
 import Constants from './config/constants';
 

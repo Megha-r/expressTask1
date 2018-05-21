@@ -1,5 +1,5 @@
 export default {
-    'secret': 'apiCreationFirstapp',
-    'mongoDB': "mongodb://localhost:27017/myfirstApp",
-    'port': process.env.PORT || 8080
+    secret: 'apiCreationFirstapp',
+    mongoDB: "mongodb://localhost:27017/myfirstApp",
+    port: process.env.PORT || 5000
 };

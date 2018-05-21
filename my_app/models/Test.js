@@ -13,24 +13,24 @@ let  usersSchema   = new mongoose.Schema({
 	}, 
 	email:{
 		type:String,
-		requied: true,
+		required: true,
 		unique: true,
 		validate: /^[a-zA-Z0-9]*[@][a-zA-Z]*[.][a-zA-Z]*/
 
 	},    
 	name: {
 		type:String,
-		requied: true,
+		required: true,
       
 	},
 	password: {
 		type:String,
-		requied: true,
+		required: true,
       
 	},
 	role: {
 		type:String,
-		requied: true,
+		required: true,
        
 	},
 	admin: Boolean
@@ -38,4 +38,4 @@ let  usersSchema   = new mongoose.Schema({
 
 
 const Users = mongoose.model('users', usersSchema);
- export default Users;
+export default Users;
