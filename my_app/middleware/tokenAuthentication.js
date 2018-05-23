@@ -1,9 +1,7 @@
 import jwt from 'jsonwebtoken';
-import app from "../../server.js"
-import Users  from "../../models/Test";
+import app from "../server.js"
+import Users from "../models/testSchema"
 var roleOfUser
-
-
 export function allUsers (req, res, next) {
 	let token = req.body.token || req.query.token || req.headers['x-access-token'];
 

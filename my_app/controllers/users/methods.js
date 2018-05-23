@@ -1,4 +1,4 @@
-import { Users } from "../../models/Test";
+import { Users } from "../../models/testSchema";
 import { resolve } from "dns";
 import { rejects } from "assert";
 

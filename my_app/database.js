@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import {users} from './models/Test'
+import {users} from './models/testSchema'
 import { connect } from 'mongoose';
 import Constants from './config/constants';
 

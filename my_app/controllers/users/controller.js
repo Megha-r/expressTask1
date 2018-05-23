@@ -1,4 +1,4 @@
-import Users from '../../models/Test';
+import Users from '../../models/testSchema';
 import UserMethod from './methods';
 class UserController extends UserMethod {
     createUser = async (req, res) => {

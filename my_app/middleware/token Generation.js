@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
 import app from "../server.js"
-import Users from "../models/Test.js"
+import Users from "../models/testSchema"
 
 export function autheticationFunc (req, res) {
     Users.findOne({
