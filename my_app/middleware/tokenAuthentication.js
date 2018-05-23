@@ -28,7 +28,7 @@ export function allUsers (req, res, next) {
 							return res.json({ success: false, message: 'Failed to find user.' });
 							else
 							 roleOfUser = document.role;
-							
+			//Only admin can access the data of all users and user can update data(NOT VICE-VERSA)			
                             if ((roleOfUser === "admin" && req.method === 'GET') || (roleOfUser === "user" && req.method === 'PUT'))
                                 next()
                             else
