@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken';
 import app from "../server.js"
 import Users from "../models/testSchema"
-var roleOfUser
+let roleOfUser
 export function allUsers (req, res, next) {
 	let token = req.body.token || req.query.token || req.headers['x-access-token'];
 
@@ -17,7 +17,6 @@ export function allUsers (req, res, next) {
 			else {
                 req.decoded = decoded;
                 console.log("***************************", decoded.id);
-                var a_id = decoded.id;
                 if (decoded.id) {
                     Users.findOne({ _id: decoded.id }, function (err, document) {
                         if (err) {
