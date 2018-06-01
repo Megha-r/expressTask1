@@ -1,6 +1,6 @@
 //let mongoose = require('mongoose');
 
- import mongoose from 'mongoose';
+import mongoose from 'mongoose';
 
 let  usersSchema   = new mongoose.Schema({
 	username:{
@@ -11,7 +11,7 @@ let  usersSchema   = new mongoose.Schema({
 		// validate: usernameValidator
         
 	}, 
-	email:{
+	email: {
 		type:String,
 		required: true,
 		unique: true,

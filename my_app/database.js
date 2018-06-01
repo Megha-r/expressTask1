@@ -2,10 +2,11 @@ import mongoose from 'mongoose';
 import {users} from './models/testSchema'
 import { connect } from 'mongoose';
 import Constants from './config/constants';
+import {logger} from './logger';
 
 // Use native promises
 mongoose.Promise = global.Promise;
-console.log(Constants.mongoDB)
+// console.log(Constants.mongoDB)
 // Connect to our mongo database;
 mongoose.connect(Constants.mongoDB, {
   // useMongoClient: true,
@@ -14,6 +15,6 @@ mongoose.connect(Constants.mongoDB, {
   if (err) {
     throw err;
   }
-  console.log('Mongo DB Successfully connected');
+  logger.info('Mongo DB Successfully connected');
 });
 

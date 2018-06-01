@@ -2,14 +2,14 @@ import jwt from 'jsonwebtoken';
 import app from "../server.js"
 import Users from "../models/testSchema"
 let roleOfUser
-export function allUsers (req, res, next) {
+ function allUsers (req, res, next) {
 	let token = req.body.token || req.query.token || req.headers['x-access-token'];
 
 	// decode token
 	if (token) {
 
 		jwt.verify(token, app.get('mySecret'), function (err, decoded) {
-			console.log("~~~~~~~~~~~~~~~~~~~~~~~~",token);
+			console.log("==================",token);
 			console.log(decoded);
 			if (err) {
 				return res.json({ success: false, message: 'Failed to authenticate token.' });
@@ -20,7 +20,7 @@ export function allUsers (req, res, next) {
                 if (decoded.id) {
                     Users.findOne({ _id: decoded.id }, function (err, document) {
                         if (err) {
-                            return res.json({ success: false, message: 'Failed to find user.' });
+                            return res.json({ success: false, message: 'Error occured in finding user.' });
                         }
                         else {
 							if(document == null)
@@ -29,7 +29,10 @@ export function allUsers (req, res, next) {
 							 roleOfUser = document.role;
 							
                             if ((roleOfUser === "admin" && req.method === 'GET') || (roleOfUser === "user" && req.method === 'PUT'))
+                            {
+                                console.log("*****NEXT IS AFTER ME*****")    
                                 next()
+                        }
                             else
                                 return res.json({ success: false, message: 'Access not granted' });
 
@@ -54,9 +57,9 @@ export function allUsers (req, res, next) {
 
 	}
 }
+
 export function getUsers(req, res) {
-
-
+    console.log("REQUEST IN NEXT", req);
     Users.find(function (err, resp) {
         if (err)
             res.status(err).send(err);
@@ -64,3 +67,5 @@ export function getUsers(req, res) {
     })
 
 }
+
+export default allUsers;
